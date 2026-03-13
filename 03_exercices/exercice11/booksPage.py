@@ -6,6 +6,10 @@ class BooksPage:
     URL = "https://books.toscrape.com"
 
     BOOKS = (By.CLASS_NAME, "product_pod")
+    TITLE = (By.TAG_NAME, "h3")
+    PRICE = (By.CLASS_NAME, "price_color")
+    AVAILABILITY = (By.CLASS_NAME, "instock")
+    RATING = (By.CLASS_NAME, "star-rating")
    
 
     def __init__(self, driver, timeout=10):
@@ -19,7 +23,7 @@ class BooksPage:
         self.wait.until(EC.presence_of_all_elements_located(self.BOOKS))
 
     def get_book_elements(self):
-        return self.driver.find_elements(self.BOOKS)
+        return self.driver.find_elements(*self.BOOKS)
 
     def extract_book_data(self):
         books = []
@@ -27,17 +31,17 @@ class BooksPage:
 
         for i, book in enumerate(book_elements):
             try:
-                title_elem = book.find_element(By.TAG_NAME, "h3")
+                title_elem = book.find_element(*self.TITLE)
                 title = title_elem.text.strip()
 
-                price_elem = book.find_element(By.CLASS_NAME, "price_color")
+                price_elem = book.find_element(*self.PRICE)
                 price_text = price_elem.text.strip()
                 price = float(price_text.replace("£", ""))
 
-                avail_elem = book.find_element(By.CLASS_NAME, "instock")
+                avail_elem = book.find_element(*self.AVAILABILITY)
                 availability = avail_elem.text.strip()
 
-                rating_elem = book.find_element(By.CLASS_NAME, "star-rating")
+                rating_elem = book.find_element(*self.RATING)
                 rating = rating_elem.get_attribute("class").split()[-1]
 
                 books.append({
