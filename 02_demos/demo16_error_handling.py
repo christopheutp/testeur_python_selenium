@@ -162,7 +162,7 @@ def demo_assertions_with_logging():
 
         # Assertion 1
         logger.info("Assertion 1: Vérifier le titre...")
-        #assert "DemoQA" in driver.title
+        #assert "DemoQA" in driver.title   # erreur provoque pour tester la capture d'ecran
         assert "demosite" in driver.title
         logger.info(" Titre correct")
 
@@ -182,7 +182,7 @@ def demo_assertions_with_logging():
         logger.info("Assertion 4: Saisie de données...")
         name_field.send_keys("Test User")
         #assert "Test User" in name_field.get_attribute("value")
-        assert "Toto" in name_field.get_attribute("value") , "Valeur incorrect dans l'input"
+        assert "Toto" in name_field.get_attribute("value") , "Valeur incorrect dans l'input" # erreur provoque pour tester la capture d'ecran
         logger.info(" Données saisies correctement")
 
         # Assertion 5
