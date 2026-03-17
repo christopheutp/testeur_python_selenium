@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from basePage import BasePage
+from .basePage import BasePage
 from selenium.webdriver.support.ui import Select
 
 class DropdownPage(BasePage):

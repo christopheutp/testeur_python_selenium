@@ -1,5 +1,5 @@
-from loginPage import LoginPage
-from secureAreaPage import SecureAreaPage
+from pages.loginPage import LoginPage
+from pages.secureAreaPage import SecureAreaPage
 from utils import create_driver
 import time
 

@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from basePage import BasePage
+from .basePage import BasePage
 
 class SecureAreaPage(BasePage):
     FLASH_MESSAGE = (By.ID, "flash")

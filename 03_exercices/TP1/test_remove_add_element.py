@@ -1,5 +1,5 @@
 
-from addRemovePage import AddRemovePage
+from pages.addRemovePage import AddRemovePage
 from utils import create_driver
 import time
 

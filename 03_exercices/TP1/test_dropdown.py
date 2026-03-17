@@ -1,4 +1,4 @@
-from dropdownpage import DropdownPage
+from pages.dropdownpage import DropdownPage
 from utils import create_driver
 import time
 
